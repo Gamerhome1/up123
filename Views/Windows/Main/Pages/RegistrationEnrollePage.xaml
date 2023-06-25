@@ -1,0 +1,112 @@
+﻿<Page x:Class="UP.Views.Windows.Main.Pages.RegistrationEnrollePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP.Views.Windows.Main.Pages"
+      xmlns:vm="clr-namespace:UP.ViewModels"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegistrationEnrollePage">
+    
+    <Page.DataContext>
+        <vm:RegistrationEnrolleViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="280"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               HorizontalContentAlignment="Center"
+               Content="Регистрация абитуриентов"
+               Grid.ColumnSpan="2"
+               FontFamily="Courier New"
+               FontSize="30"
+               Foreground="Black"/>
+
+        <DataGrid Grid.Column="0"
+                  Grid.Row="1"
+                  ItemsSource="{Binding Enrollees}"
+                  Style="{StaticResource BaseDataGrid}"
+                  Background="Gray"
+                  Foreground="Green">
+
+            <DataGrid.Columns>
+
+                <DataGridCheckBoxColumn MinWidth="30"
+                                        HeaderTemplate="{StaticResource DataGridColumnHeaderCheckBoxTemplate}"
+                                        ElementStyle="{StaticResource DataGridSelectionCheckBoxStyle}"
+                                        EditingElementStyle="{StaticResource DataGridSelectionCheckBoxStyle}"/>
+
+                <DataGridTextColumn Header="Фамилия"
+                                    MinWidth="120"
+                                    Binding="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"
+                                    Width="*"/>
+                
+                <DataGridTextColumn Header="Имя"
+                                    MinWidth="90"
+                                    Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                    Width="*"/>
+
+                <DataGridTextColumn Header="Отчество"
+                                    MinWidth="120"
+                                    Binding="{Binding Patronymic, UpdateSourceTrigger=PropertyChanged}"
+                                    Width="*"/>
+                
+                <DataGridComboBoxColumn Header="Пол"
+                                        MinWidth="60"
+                                        SelectedValueBinding="{Binding Gender, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridComboBoxColumn.ElementStyle>
+                        <Style TargetType="ComboBox">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridComboBoxColumn.ElementStyle>
+                    <DataGridComboBoxColumn.ItemsSource>
+                        <CompositeCollection>
+                            <system:String>Ж</system:String>
+                            <system:String>М</system:String>
+                        </CompositeCollection>
+                    </DataGridComboBoxColumn.ItemsSource>
+                </DataGridComboBoxColumn>
+                
+                <DataGridTextColumn Header="Дата рождения"
+                                    MinWidth="200"
+                                    Binding="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <DataGridTextColumn Header="СНИЛС"
+                                    MinWidth="160"
+                                    Binding="{Binding Snils, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <DockPanel Grid.RowSpan="2"
+                   Grid.Column="1"
+                   Style="{StaticResource buttonsPanel}">
+
+            <Button Content="Добавить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding AddCommand}"/>
+
+            <Button Content="Удалить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding RemoveCommand}"/>
+            
+            <Button Content="Coхранить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding SaveCommand}"/>
+
+            <Button Content="Далее"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding GoToSelectCitizenshipCommand}"/>
+        </DockPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,72 @@
+﻿<Window x:Class="UP.Views.Windows.Speciality.SpecialityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UP.Views.Windows.Speciality"
+        xmlns:vm="clr-namespace:UP.ViewModels"
+        mc:Ignorable="d"
+        Title="SpecialityWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <vm:SpecialityViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="280"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               HorizontalContentAlignment="Center"
+               Content="Специальности"
+               Grid.ColumnSpan="2"
+               FontFamily="Courier New"
+               FontSize="30"/>
+
+        <DataGrid Grid.Column="0"
+                  Grid.Row="1"
+                  ItemsSource="{Binding Specialities}"
+                  Style="{StaticResource BaseDataGrid}">
+
+            <DataGrid.Columns>
+
+                <DataGridCheckBoxColumn MinWidth="30"
+                                        HeaderTemplate="{StaticResource DataGridColumnHeaderCheckBoxTemplate}"
+                                        ElementStyle="{StaticResource DataGridSelectionCheckBoxStyle}"
+                                        EditingElementStyle="{StaticResource DataGridSelectionCheckBoxStyle}"/>
+
+                <DataGridTextColumn Header="Название"
+                                    Width="*"
+                                    Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <DataGridTextColumn Header="Код подразделения"
+                                    Width="*"
+                                    Binding="{Binding DivisionСode, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DockPanel Grid.RowSpan="2"
+                   Grid.Column="1"
+                   Style="{StaticResource buttonsPanel}">
+
+            <Button Content="Добавить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding AddCommand}"/>
+
+            <Button Content="Удалить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding RemoveCommand}"/>
+
+            <Button Content="Coхранить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding SaveCommand}"/>
+        </DockPanel>
+    </Grid>
+</Window>
