@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 
 namespace UP.ViewModels
 {
@@ -56,11 +57,14 @@ namespace UP.ViewModels
 
         private void OnLoadToExcelCommandexecuted(object parameter)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel файлы (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            openFileDialog.ShowDialog();
             MessageBox.Show("Идёт выгрузка, пожалуйста подождите");
             var ExelReport = ExcelGenerator.Generate(EnrolleeReport);
             try
             {
-                File.WriteAllBytes("../../../Reports/Files/Приёмная коммисия.xlsx", ExelReport);
+                File.WriteAllBytes(openFileDialog.FileName, ExelReport);
             }
             catch
             {

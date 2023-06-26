@@ -28,27 +28,26 @@
                HorizontalContentAlignment="Center"
                Content="Выгрузить в файл"
                Grid.ColumnSpan="2"
-               FontFamily="Courier New"
+               FontFamily="times new roman"
                FontSize="30"/>
 
-        <Button Grid.Column="0"
+        <Button Grid.ColumnSpan="2"
                 Command="{Binding LoadToExcelCommand}"
                 Grid.Row="1"
                 BorderBrush="Transparent"
                 Background="Transparent"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-            <Button.Content>
-                <Image Source="/Views/Windows/Main/Pages/excel.png"
-                       Width="100"
-                       Height="100"/>
-            </Button.Content>
+                VerticalAlignment="Center"
+                Content="В EXCEL"
+                FontSize="42"
+                Foreground="CadetBlue">
+          
         </Button>
 
         <DockPanel Grid.Column="1"
                    Grid.RowSpan="2"
                    Style="{StaticResource buttonsPanel}">
-            
+
             <Button Content="Назад"
                     Command="{Binding GoToWardPageCommand}"
                     Style="{StaticResource panelButton}"/>

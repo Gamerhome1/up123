@@ -9,10 +9,10 @@ namespace UP.Models
         private string surname;
         private string? patronymic;
         private string gender;
-        private DateOnly dateOfBirth;
+        private DateTime dateOfBirth;
         private string snils;
         private int age;
-        private DateOnly yearOfAdmission;
+        private DateTime yearOfAdmission;
         private Education education;
         private Disability disability;
         private Certificate certificate;
@@ -26,8 +26,8 @@ namespace UP.Models
 
         public Enrollee() { }
         public Enrollee(string name, string surname, string patronymic,
-                        string gender, DateOnly dateOfBirth, string snils,
-                        DateOnly yearOfAdmission) 
+                        string gender, DateTime dateOfBirth, string snils,
+                        DateTime yearOfAdmission) 
         {
             Name = name;
             Surname = surname;
@@ -62,7 +62,7 @@ namespace UP.Models
             set { Set(ref gender, value); }
         }
 
-        public DateOnly DateOfBirth
+        public DateTime DateOfBirth
         {
             get { return dateOfBirth; }
             set { Set(ref dateOfBirth, value); }
@@ -80,7 +80,7 @@ namespace UP.Models
             set { Set(ref age, value); }
         }
 
-        public DateOnly YearOfAdmission
+        public DateTime YearOfAdmission
         {
             get { return yearOfAdmission; }
             set { Set(ref yearOfAdmission, value); }

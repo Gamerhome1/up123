@@ -3,7 +3,6 @@
     
     <Style x:Key="buttonsPanel" TargetType="DockPanel">
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="LastChildFill" Value="False"/>
     </Style>
 

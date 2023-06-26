@@ -34,7 +34,7 @@
                HorizontalContentAlignment="Center"
                Content="Образование"
                Grid.ColumnSpan="2"
-               FontFamily="Courier New"
+               FontFamily="times new roman"
                FontSize="30"/>
 
         <DataGrid Grid.Column="0"

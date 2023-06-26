@@ -27,7 +27,7 @@
                HorizontalContentAlignment="Center"
                Content="Специальности"
                Grid.ColumnSpan="2"
-               FontFamily="Courier New"
+               FontFamily="times new roman"
                FontSize="30"/>
 
         <DataGrid Grid.Column="0"
@@ -44,11 +44,13 @@
 
                 <DataGridTextColumn Header="Название"
                                     Width="*"
-                                    Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                    Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                     Foreground="Green"/>
 
                 <DataGridTextColumn Header="Код подразделения"
                                     Width="*"
-                                    Binding="{Binding DivisionСode, UpdateSourceTrigger=PropertyChanged}"/>
+                                    Binding="{Binding DivisionСode, UpdateSourceTrigger=PropertyChanged}"
+                                    Foreground="Green"/>
             </DataGrid.Columns>
         </DataGrid>
 

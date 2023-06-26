@@ -37,7 +37,7 @@
                HorizontalContentAlignment="Center"
                Content="Выбор гражданства"
                Grid.ColumnSpan="2"
-               FontFamily="Courier New"
+               FontFamily="times new roman"
                FontSize="30"/>
 
         <DataGrid Grid.Row="1"
