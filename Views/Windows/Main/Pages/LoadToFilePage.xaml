@@ -40,8 +40,10 @@
                 VerticalAlignment="Center"
                 Content="В EXCEL"
                 FontSize="42"
-                Foreground="CadetBlue">
-          
+                Foreground="CadetBlue"
+                Width="500"
+                Height="500">
+
         </Button>
 
         <DockPanel Grid.Column="1"

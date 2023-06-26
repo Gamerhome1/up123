@@ -27,7 +27,7 @@
                HorizontalContentAlignment="Center"
                Content="Образование"
                Grid.ColumnSpan="2"
-               FontFamily="Courier New"
+               FontFamily="time new roman"
                FontSize="30"/>
 
         <DataGrid Grid.Column="0"
@@ -127,14 +127,15 @@
             <Button Content="Добавить"
                     Style="{StaticResource panelButton}"
                     Command="{Binding AddCommand}"/>
-
-            <Button Content="Удалить"
-                    Style="{StaticResource panelButton}"
-                    Command="{Binding RemoveCommand}"/>
-
+            
             <Button Content="Coхранить"
                     Style="{StaticResource panelButton}"
                     Command="{Binding SaveCommand}"/>
+
+            <Button Content="Удалить"
+                    Style="{StaticResource panelButton}"
+                    Command="{Binding RemoveCommand}"
+                    DockPanel.Dock="Bottom"/>
         </DockPanel>
     </Grid>
 </Window>

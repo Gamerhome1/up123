@@ -49,12 +49,11 @@ namespace UP.ViewModels
         {
             SpecialityWindow specialityWindow = new SpecialityWindow();
             specialityWindow.ShowDialog();
-            DataBaseConnection.ApplicationContext.Speciality.ToList().ForEach(speciality =>
+            Specialities.Clear();
+            DataBaseConnection.ApplicationContext.Speciality.ToList().ForEach(Specialities.Add);
+            Enrollees.ForEach(enrollee =>
             {
-                if (!Specialities.Contains(speciality))
-                {
-                    Specialities.Add(speciality);
-                }
+                enrollee.Speciality = Specialities.FirstOrDefault(speciality => speciality.Id == enrollee.SpecialityId);
             });
         }
 

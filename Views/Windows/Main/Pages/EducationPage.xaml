@@ -40,7 +40,8 @@
         <DataGrid Grid.Column="0"
                   Grid.Row="1"
                   ItemsSource="{Binding Enrollees}"
-                  Style="{StaticResource BaseDataGrid}">
+                  Style="{StaticResource BaseDataGrid}"
+                  Background="Gray">
             
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Абитуриент"

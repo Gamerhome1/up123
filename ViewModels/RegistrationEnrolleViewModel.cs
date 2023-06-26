@@ -90,6 +90,7 @@ namespace UP.ViewModels
             SelectedEnrolle.ToList().ForEach(enrollee => 
             {
                 Enrollee dbEnrollee = dbEnroleee.Find(enrollee.Id);
+                Enrollees.Remove(enrollee);
                 if (dbEnrollee != null)
                 {
                     RemovedEnrolle.Add(dbEnrollee);

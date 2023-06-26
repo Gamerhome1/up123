@@ -33,13 +33,14 @@
                HorizontalContentAlignment="Center"
                Content="Инвалидность"
                Grid.ColumnSpan="2"
-               FontFamily="Courier New"
+               FontFamily="time new roman"
                FontSize="30"/>
 
         <DataGrid Grid.Row="1"
                   Grid.Column="0"
                   ItemsSource="{Binding Enrollees}"
-                  Style="{StaticResource BaseDataGrid}">
+                  Style="{StaticResource BaseDataGrid}"
+                  Background="Gray">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Абитуриент"
                                         Width="*">

@@ -48,6 +48,8 @@ namespace UP.Models.DTO
             Citizenship = citizenship;
             PlaceOfResidence = placeOfResidence;
             District = district;
+            EducationId = education?.Id;
+            SpecialityId = speciality?.Id;
         }
 
         public EnrolleeDTO() { }

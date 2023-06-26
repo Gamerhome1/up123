@@ -44,7 +44,6 @@ namespace UP.ViewModels
             get { return selectedSpecialities; }
             set { Set(ref selectedSpecialities, value); }
         }
-
         public bool IsAllSelected
         {
             get { return isAllSelected; }
@@ -82,7 +81,16 @@ namespace UP.ViewModels
 
         public void OnRemoveCommandExecuted(object parameter)
         {
-            SelectedSpecialities.ToList().ForEach(item => Specialities.Remove(item));
+            DbSet<Speciality> dbSpecialities = DataBaseConnection.ApplicationContext.Speciality;
+            SelectedSpecialities.ToList().ForEach(speciality =>
+            {
+                Speciality dbSpeciality = dbSpecialities.Find(speciality.Id);
+                Specialities.Remove(speciality);
+                if (dbSpeciality != null)
+                {
+                    dbSpecialities.Remove(dbSpeciality);
+                }
+            });
             SelectedSpecialities.Clear();
         }
 

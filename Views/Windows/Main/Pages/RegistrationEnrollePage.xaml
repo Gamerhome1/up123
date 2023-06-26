@@ -37,8 +37,7 @@
                   Grid.Row="1"
                   ItemsSource="{Binding Enrollees}"
                   Style="{StaticResource BaseDataGrid}"
-                  Background="Gray"
-                  Foreground="Green">
+                  Background="Gray">
 
             <DataGrid.Columns>
 
